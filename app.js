@@ -3,12 +3,22 @@ import { API_KEY } from "./config.js";
 
 let map;
 
+const mapStyles = [
+    {
+      featureType: "poi",
+      stylers: [
+        { visibility: "off" }
+      ]
+    }
+  ];
+
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
 
   map = new Map(document.getElementById("map"), {
     center: { lat: 37.76432910263944, lng: -122.44670030095159},
     zoom: 8,
+    styles: mapStyles,
   });
 
   const markers = [[
